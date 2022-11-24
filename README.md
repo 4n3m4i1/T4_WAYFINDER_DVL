@@ -2,6 +2,12 @@
 Bare minimum functional non blocking library for Teledyne Wayfinder DVL  
 communicating over RS232 to a Teensy 4.X. A MAX3232 or equivalent is required  
 for hardware connections.  
+A `DVL_LIBRARY_TESTER.ino` is provided to show basic functionality.  
+By default sending chars over serial will return data from the DVL.  
+- `r` Requests DVL System Configuration Data
+- `s` Returns DVL Setup Configuration
+- `c` Sends new test configuration data. Currently NOT WORKING (checksum)
+- `q` Toggles DVL datastream
   
 ## Functions Provided  
 ### init_DVL_serial()
