@@ -4,8 +4,8 @@
 #include <Arduino.h>
 // Remember: MSB IS SEND FIRST OVER UART
 
-//DVL_ dvl;
-//DVL_VELOCITY current_velocity;
+DVL_ dvl;
+DVL_VELOCITY current_velocity;
 
 uint8_t DVL_TX_BUF[DVL_TX_BUF_LEN]  DMAMEM;
 uint8_t DVL_RX_BUF[DVL_RX_BUF_LEN]  DMAMEM;
@@ -17,6 +17,10 @@ void init_DVL_serial(){
     DVLSERIAL.addMemoryForRead(DVL_RX_BUF, sizeof(DVL_RX_BUF));
 
     clear_DVL_RX();
+}
+
+DVL_ *init_DVL_data_struct(){
+    return &dvl;
 }
 
 void inline clear_DVL_RX(){

@@ -303,7 +303,7 @@ struct DVL_{
 
 
 
-
+DVL_ *init_DVL_data_struct();
 
 
 
