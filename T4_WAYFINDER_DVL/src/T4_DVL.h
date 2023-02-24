@@ -49,21 +49,30 @@ bool read_and_match_CMD_STRUC_ID(const uint8_t *str_2_match);
 
 void inline get_system_command_dvl();
 int request_DVL_System_Config();
+
+#ifndef NO_DVL_DEBUG
 void print_DVL_System_Config();
+#endif
 
 void inline get_setup_command_dvl();
 int request_DVL_Setup_Config();
+
+#ifndef NO_DVL_DEBUG
 void print_DVL_Setup_Config();
+#endif
 
 void inline set_setup_command_dvl();
 int set_DVL_Setup_Config(float speed_of_sound_, float max_track_range, uint8_t baudrate, uint8_t soft_trig);
 
 
 int DVL_DATA_UPDATE();
+
+#ifndef NO_DVL_DEBUG
 void print_current_vel();
 void print_current_power();
 void print_current_beam_range();
 void print_current_BIT();
+#endif
 
 // General Use Struct
 struct STATUS__{

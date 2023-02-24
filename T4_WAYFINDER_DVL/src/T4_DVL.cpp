@@ -242,6 +242,7 @@ int request_DVL_System_Config(){
     return 0;   // TODO: Check checksum, check major and minor status
 }
 
+#ifndef NO_DVL_DEBUG
 void print_DVL_System_Config(){
     Serial.printf("DVL System Configuration\n");
     Serial.printf("Major Status:\t\t%2X\n", dvl.responseData.getSystemRes.status.major);
@@ -257,6 +258,7 @@ void print_DVL_System_Config(){
     Serial.printf("Subsystem Type:\t\t%d\n", dvl.responseData.getSystemRes.subsys_type);
     Serial.printf("Checksum:\t\t%u\n", dvl.responseData.getSystemRes.checksum);
 }
+#endif
 
 // GET SETUP
 void inline get_setup_command_dvl(){
@@ -298,6 +300,7 @@ int request_DVL_Setup_Config(){
     return 0;   // TODO: Check checksum, check major and minor status
 }
 
+#ifndef NO_DVL_DEBUG
 void print_DVL_Setup_Config(){
     Serial.printf("DVL Setup Configuration\n");
     Serial.printf("Major Status:\t\t%2X\n", dvl.responseData.getSetupRes.status.major);
@@ -305,7 +308,7 @@ void print_DVL_Setup_Config(){
     Serial.printf("Soft Trigger:\t\t%u\n", dvl.responseData.getSetupRes.soft_trig);
     if(dvl.responseData.getSetupRes.baud == DVL_115200_BAUD){
         Serial.printf("BAUD:\t\t\t115200\n");
-    } else if(dvl.responseData.getSetupRes.baud == DVL_115200_BAUD){
+    } else if(dvl.responseData.getSetupRes.baud == DVL_9600_BAUD){
         Serial.printf("BAUD:\t\t\t9600\n");
     } else {
         Serial.printf("BAUD:\t\t\t%u\n", dvl.responseData.getSetupRes.baud);
@@ -314,6 +317,7 @@ void print_DVL_Setup_Config(){
     Serial.printf("Max Track Depth:\t%.2f\n", dvl.responseData.getSetupRes.max_track_depth);
     Serial.printf("Checksum:\t\t%u\n", dvl.responseData.getSetupRes.checksum);
 }
+#endif
 
 // SET SETUP CONFIGURATION VARIABLES
 void inline set_setup_command_dvl(){
@@ -456,6 +460,7 @@ int DVL_DATA_UPDATE(){
     return 0;
 }
 
+#ifndef NO_DVL_DEBUG
 // Debug only
 void print_current_vel(){
     Serial.printf("X:\t\t%.4f\n", current_velocity.X);
@@ -485,3 +490,4 @@ void print_current_BIT(){
         Serial.printf("BIT:\t\tNo Errors\n");
     }
 }
+#endif

@@ -37,6 +37,9 @@ If the message is deemed valid, read data can be viewed with:
   
 ## Default Configuration
 By default `DVLSERIAL` is defined as `Serial1 / LPUART1`  
+If `#define NO_DVL_DEBUG` isn't defined, `Serial.print()` statements will be  
+included.  
+  
   
 # TODO
 - Fix checksums
